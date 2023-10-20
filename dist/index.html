@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>J Mart</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .text-stroke {
+    -webkit-text-stroke: 1.5px black;
+        }
+    </style>
+    <script>
+        function toggleMobileMenu() {
+            console.log("Toggling mobile menu..."); // <-- add this
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+            }
+        }
+
+        
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+</head>
+<body>
+
+
+    <header>
+        <!-- Nav bar -->
+        <nav class="bg-blue-500 p-4 relative">
+            <div class="container mx-auto">
+                <div class="flex justify-between items-center">
+                    <a href="#">
+                        <img src="images/Jmart Logo.jpg" alt="Jmart Logo" class="h-12">
+                    </a>
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex space-x-4">
+                        <a href="#about" class="text-xl font-bold text-white transition duration-300 ease-in-out transform hover:text-red-600 hover:scale-105">About Us</a>
+                        <a href="#products" class="text-xl font-bold text-white transition duration-300 ease-in-out transform hover:text-red-600 hover:scale-105">Products</a>
+                        <a href="#contact" class="text-xl font-bold text-white transition duration-300 ease-in-out transform hover:text-red-600 hover:scale-105">Contact</a>
+                    </div>
+                    <!-- Hamburger Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <!-- Mobile Menu (Dropdown Style) -->
+                <div class="md:hidden absolute top-full right-0 w-64 mt-2 space-y-2 bg-blue-500 border border-blue-400 rounded-lg shadow-lg hidden z-50" id="mobileMenu">
+                    <a href="#about" class="block px-4 py-2 text-xl font-bold text-white transition duration-300 ease-in-out transform hover:bg-blue-400 hover:scale-105">About Us</a>
+                    <a href="#products" class="block px-4 py-2 text-xl font-bold text-white transition duration-300 ease-in-out transform hover:bg-blue-400 hover:scale-105">Products</a>
+                    <a href="#contact" class="block px-4 py-2 text-xl font-bold text-white transition duration-300 ease-in-out transform hover:bg-blue-400 hover:scale-105">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+
+
+
+<!-- Hero Section -->
+<section class="relative bg-cover bg-center h-screen" style="background-image: url('images/jmart3.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div> <!-- Background overlay -->
+    <div class="relative flex items-center justify-center h-full">
+        <div class="text-center">
+            <h1 class="text-stroke text-yellow-300 text-6xl font-extrabold leading-tight mb-4">
+                Welcome to J mart
+            </h1>
+            <p class="text-white text-xl font-semibold mb-6" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">
+                Discover authentic Filipino groceries
+            </p>
+            <a href="#contact" class="inline-block px-8 py-4 text-xl font-bold text-yellow-200 bg-green-600 rounded-full transition duration-300 ease-in-out transform hover:bg-red-500 hover:scale-105">
+                Visit Us
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- About Us Section -->
+<section class="py-20" id="about" style="background-image: url('images/dalle_jmart2.png'); background-size: cover; background-position: center;">
+    <div class="container mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold">About Us</h2>
+        <p class="text-lg mt-4">Providing a unique selection of authentic Asian foods since 2005</p>
+      </div>
+      <!-- ... other contents ... -->
+    </div>
+  </section>
+
+<!-- Products Section -->
+<section class="py-20 bg-gray-100" id="products">
+  <div class="container mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold">Our Products</h2>
+      <p class="text-lg mt-4">A sneak peek into our diverse product range</p>
+    </div>
+    <!-- ... other contents ... -->
+  </div>
+</section>
+
+<!-- ... other sections ... -->
+
+<section class="py-20" id="contact">
+    <div class="container mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold">Visit Us</h2>
+      </div>
+      <form hx-post="/contact" hx-swap="innerHTML">
+        <input type="text" name="name" placeholder="Your Name" class="block w-full px-4 py-2 mb-4 border rounded-lg">
+        <input type="email" name="email" placeholder="Your Email" class="block w-full px-4 py-2 mb-4 border rounded-lg">
+        <button type="submit" class="px-6 py-2 text-lg text-white bg-red-500 rounded-full">Submit</button>
+      </form>
+    </div>
+  </section>
+
+</body>
+</html>
