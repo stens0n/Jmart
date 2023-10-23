@@ -92,13 +92,12 @@
     <div class="absolute inset-0 bg-black bg-opacity-50"></div> <!-- Background overlay -->
     <div class="relative flex items-center justify-center h-full">
         <div class="text-center flex flex-col items-center">
-            <h1 class="text-stroke text-yellow-300 text-6xl font-cartoony leading-tight mb-2" style="text-shadow: 3px 3px 5px rgba(0,0,0,0.7);">
+            <h1 class="text-yellow-400 text-6xl font-cartoony leading-tight mb-2" style="text-shadow: 3px 3px 5px rgba(0,0,0,0.7);">
                 Welcome to J-mart
             </h1>
-            <!-- Added flag image here -->
             
-            <p class="text-white text-xl font-cartoony mb-6" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">
-                Filipino Groceries in Peabody Since 2009
+            <p class="text-white text-xl font-cartoony mb-6 px-8" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">
+                Peabody's Filipino Food Store Since 200X
             </p>
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold w-32 h-16 rounded-full flex items-center justify-center transition-all duration-300 ease-in-out shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                 Visit Us
@@ -110,19 +109,25 @@
 
 
 <!-- About Us Section -->
-<section class="py-20" id="about" style="background-image: url('images/dalle_jmart2.png'); background-size: cover; background-position: center;">
-    <div class="container mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold">
-            About Us
-        </h2>
-        <p class="text-lg mt-4">
-            Providing a unique selection of authentic Asian foods since 2005
-        </p>
-      </div>
+<section class="py-20 flex flex-col items-center" id="about">
+    <!-- Image div -->
+    <div class="w-1/2 max-w-xs">
+      <img class="object-cover h-full w-full" src="images/dalle_jmart2.png" alt="Background Image">
+    </div>
+    <!-- Text div -->
+    <div class="w-full text-center mt-12 px-20">
+      <h2 class="text-3xl font-cartoony">
+        About Us
+      </h2>
+      <p class="text-md mt-4 font-cartoony">
+        The Heart of Filipino Culture in Peabody
+        Established in 200X, our store is 
+        more than just a place to buy groceries; it's a community hub where Filipinos and lovers of Filipino culture can come together.
+      </p>
       <!-- ... other contents ... -->
     </div>
   </section>
+  
 
 <!-- Products Section -->
 <section class="py-20 bg-gray-100" id="products">
