@@ -1,0 +1,138 @@
+
+html {
+    scroll-behavior: smooth;
+}
+.text-stroke {
+-webkit-text-stroke: 1.5px black;
+    }
+
+
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+  }
+
+.font-cartoony {
+    font-family: "Comic Sans MS";
+  }
+/* CSS for the image gallery */
+.gallery-container {
+    display: flex;
+    text-align: center;
+    overflow: hidden;
+    overflow-x: hidden;
+    padding-bottom: 2rem;
+    scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* Add for iOS smooth scrolling */
+  }
+
+  /* Styling for the previous and next scroll buttons */
+.scroll-prev,
+.scroll-next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: transparent;
+  color: #333;
+  font-size: 2rem; /* Increase the font size for larger arrows */
+  padding: 0.5rem; /* Increase the padding for larger arrows */
+}
+
+.scroll-prev {
+  left: 0;
+}
+
+.scroll-next {
+  right: 0;
+}
+  
+  .gallery-image:hover {
+    transform: none;
+  }
+  .gallery {
+    display: flex;
+  flex-wrap: no-wrap;
+  align-items: center;
+  gap: 2rem; /* Adjust as needed */
+  padding: 1rem; /* Adds padding to the gallery */
+  scroll-snap-align: start;
+  overflow: hidden;
+  }
+  
+  .gallery img {
+    width: auto; /* Adjust the image size as needed */
+    max-height: 200px; /* Set the maximum height for mobile view */
+    margin-right: 10px; /* Add spacing between images */
+  }
+  
+  #prev, #next {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #prev {
+    float: left;
+  }
+  
+  #next {
+    float: right;
+  }
+
+  #myModal .close {
+    font-size: 100px;
+    color: red;
+  }
+
+  @media (min-width: 768px) {
+    #prev, #next {
+      display: block;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    #prev, #next {
+      display: none;
+    }
+  }
+
+  .products-section {
+    background-color: #060606;
+  }
+
+  .gallery-image:first-child {
+    margin-left: 16px;
+  }
+
+  #zoomed-image {
+    max-width: 100%; /* Limit the maximum width to the container width */
+    max-height: 80vh; /* Adjust this value as needed for maximum height */
+    display: block;
+    margin: 0 auto;
+  }
+
+
+
+ /* Style for the bottom "X" */
+.close.bottom-4.right-4 {
+  color: red; /* Make the "X" red */
+  font-size: 7.5rem; /* Increase the font size for a larger "X" */
+}
+
+/* Adjust positioning if needed */
+.close {
+  position: absolute;
+  cursor: pointer;
+}
+
+/* Style for the circular container */
+.close .rounded-full {
+  width: 3rem; /* Increase the width for a larger circular container */
+  height: 3rem; /* Increase the height for a larger circular container */
+}

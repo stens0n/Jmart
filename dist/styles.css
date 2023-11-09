@@ -1,0 +1,78 @@
+/* CSS for the image gallery */
+html {
+    scroll-behavior: smooth;
+}
+.text-stroke {
+-webkit-text-stroke: 1.5px black;
+    }
+
+
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+  }
+
+.font-cartoony {
+    font-family: "Comic Sans MS";
+  }
+
+.gallery-container {
+    text-align: center;
+    overflow: hidden;
+    overflow-x: hidden;
+  }
+  
+  .gallery-image:hover {
+    transform: none;
+  }
+  .gallery {
+    display: flex;
+    transition: transform 0.5s;
+    max-width: 100%;
+  }
+  
+  .gallery img {
+    width: auto; /* Adjust the image size as needed */
+    max-height: 200px; /* Set the maximum height for mobile view */
+    margin-right: 10px; /* Add spacing between images */
+  }
+  
+  #prev, #next {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #prev {
+    float: left;
+  }
+  
+  #next {
+    float: right;
+  }
+
+  #myModal .close {
+    font-size: 100px;
+    color: red;
+  }
+
+  @media (min-width: 768px) {
+    #prev, #next {
+      display: block;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    #prev, #next {
+      display: none;
+    }
+  }
+
+  .products-section {
+    background-color: #f2f2f233;
+  }
+
+  .gallery-image:first-child {
+    margin-left: 16px;
+  }

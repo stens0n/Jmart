@@ -5,39 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>J Mart</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://db.onlinewebfonts.com/c/7cc6719bd5f0310be3150ba33418e72e?family=Comic+Sans+MS" rel="stylesheet">
     <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+    <script src="toggleMobileMenu.js"></script>
+    <script src="ExitPhoto.js"></script>
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        .text-stroke {
-        -webkit-text-stroke: 1.5px black;
-            }
-            .font-cartoony {
-        font-family: 'Comic Sans MS', cursive, sans-serif;
-            }
-        .bg-cartoony-red {
-            background-color: #ff0000;
-        }
-
-        .text-stroke {
-            -webkit-text-stroke: 2px black;
-            text-stroke: 2px black;
-        }
+       
     </style>
-    <script>
-        function toggleMobileMenu() {
-            console.log("Toggling mobile menu..."); // <-- add this
-            const mobileMenu = document.getElementById('mobileMenu');
-            if (mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.remove('hidden');
-            } else {
-                mobileMenu.classList.add('hidden');
-            }
-        }
-
-        
-    </script>
+    <script src="toggleMobileMenu.js"></script>
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
 </head>
 <body>
@@ -93,7 +70,7 @@
     <div class="relative flex items-center justify-center h-full">
         <div class="text-center flex flex-col items-center">
             <h1 class="text-yellow-400 text-6xl font-cartoony leading-tight mb-2" style="text-shadow: 3px 3px 5px rgba(0,0,0,0.7);">
-                Welcome to J-mart
+                Welcome to J·mart
             </h1>
             
             <p class="text-white text-xl font-cartoony mb-6 px-8" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">
@@ -121,31 +98,88 @@
       </h2>
       <p class="text-md mt-4 font-cartoony">
         The Heart of Filipino Culture in Peabody
-        Established in 200X, our store is 
-        more than just a place to buy groceries; it's a community hub where Filipinos and lovers of Filipino culture can come together.
+        since 200X, check out our wide selction of Filipino Food, Send Balikbayan Box's, or Send Money internationally through RIA
       </p>
       <!-- ... other contents ... -->
     </div>
   </section>
   
-
-<!-- Products Section -->
-<section class="py-20 bg-gray-100" id="products">
-  <div class="container mx-auto">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold">Our Products</h2>
-      <p class="text-lg mt-4">A sneak peek into our diverse product range</p>
+<!-- ... Products ... -->
+<section id="products" class="products-section">
+    <div class="container mx-auto pt-16 text-yellow-400">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-cartoony">Our Products</h2>
+        <p class="text-lg mt-4 font-cartoony">A sneak peek into our diverse product range</p>
+      </div>
     </div>
-    <!-- ... other contents ... -->
-  </div>
-</section>
-
+  
+    <!-- Custom scrollbar with navigation arrows -->
+    <div class="gallery-container relative overflow-x-scroll w-screen">
+      <div class="gallery flex space-x-2 snap-x" id="gallery">
+        <img
+          src="images/shell.jpg"
+          alt="Product 1"
+          class="gallery-image cursor-pointer hover:scale-105 transform transition-transform"
+          onclick="openModal('images/shell.jpg')"
+        />
+        <img
+          src="images/ube.jpg"
+          alt="Product 2"
+          class="gallery-image cursor-pointer hover:scale-105 transform transition-transform"
+          onclick="openModal('images/ube.jpg')"
+        />
+        <img
+          src="images/display.jpg"
+          alt="Product 3"
+          class="gallery-image cursor-pointer hover:scale-105 transform transition-transform"
+          onclick="openModal('images/display.jpg')"
+        />
+        <img
+          src="images/clean.jpg"
+          alt="Product 4"
+          class="gallery-image cursor-pointer hover:scale-105 transform transition-transform"
+          onclick="openModal('images/clean.jpg')"
+        />
+        <img
+          src="images/sauce1.jpg"
+          alt="Product 4"
+          class="gallery-image cursor-pointer hover:scale-105 transform transition-transform"
+          onclick="openModal('images/sauce1.jpg')"
+        />
+        <img
+          src="images/shelf1.jpg"
+          alt="Product 4"
+          class="gallery-image cursor-pointer hover:scale-105 transform transition-transform"
+          onclick="openModal('images/shelf1.jpg')"
+        />
+      </div>
+        <div class="scroll-prev cursor-pointer" id="scrollPrev">&lt;</div>
+        <div class="scroll-next cursor-pointer" id="scrollNext">&gt;</div>
+    </div>
+  
+    <div id="larger-view" class="modal hidden fixed inset-0 items-center justify-center bg-black bg-opacity-75">
+      <div class="modal-content p-4 bg-white rounded-lg shadow-lg relative">
+  
+        <img id="zoomed-image" class="max-h-screen mx-auto" alt="" />
+  
+        <!-- Bottom "X" -->
+        <div class="close bottom-4 right-4 text-blue-200 text-3xl cursor-pointer absolute" onclick="closeLargerView()">
+          <div class="w-16 h-16 rounded-full flex justify-center items-center">
+            &times;
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
 <!-- ... other sections ... -->
 
 <section class="py-20" id="contact">
     <div class="container mx-auto">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold">Visit Us</h2>
+        <h2 class="text-3xl font-bold">
+            Visit Us
+        </h2>
       </div>
       <form hx-post="/contact" hx-swap="innerHTML">
         <input type="text" name="name" placeholder="Your Name" class="block w-full px-4 py-2 mb-4 border rounded-lg">
@@ -155,5 +189,6 @@
     </div>
   </section>
 
+<script src="gallery.js"></script>
 </body>
 </html>
